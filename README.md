@@ -4,21 +4,22 @@
 >WPF is a popular developing language in PC software field.
 >Here is our group members' thinkings overview during the long learning journey.
 
-# 1.绘图技术之oxyplot
+# 1.Drawing curves 
+## oxyplot.dll
 
-# 2.SQlite3数据库技术
+# 2.SQlite3 technicals
 
-# 3.NModbus通信
+# 3.NModbus Communication
 
-# 4.事件委托机制
+# 4.event and delegate 
 
-# 5.异步编程、线程及同步
+# 5.asynic and thread
 
-# 6.WPF数据表格模板
+# 6.WPF DataGrid template
 
-# 7.绑定
+# 7.Binding
 
-# 8.反射
+# 8.Reflection
 
-# 9.单元测试
+# 9.Unit test by VS
 
