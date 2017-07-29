@@ -5,7 +5,7 @@
 >Here is our group members' thinkings overview during the long learning journey.
 
 ># 1.Drawing curves 
-## oxyplot.dll
+>## oxyplot.dll
 
 ># 2.SQlite3 technicals
 
