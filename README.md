@@ -4,22 +4,22 @@
 >WPF is a popular developing language in PC software field.
 >Here is our group members' thinkings overview during the long learning journey.
 
-# 1.Drawing curves 
+># 1.Drawing curves 
 ## oxyplot.dll
 
-# 2.SQlite3 technicals
+># 2.SQlite3 technicals
 
-# 3.NModbus Communication
+># 3.NModbus Communication
 
-# 4.event and delegate 
+># 4.event and delegate 
 
-# 5.asynic and thread
+># 5.asynic and thread
 
-# 6.WPF DataGrid template
+># 6.WPF DataGrid template
 
-# 7.Binding
+># 7.Binding
 
-# 8.Reflection
+># 8.Reflection
 
-# 9.Unit test by VS
+># 9.Unit test by VS
 
