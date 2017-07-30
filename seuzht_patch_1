@@ -147,6 +147,60 @@ Application类将对象发送过来的消息从应用程序消息队列中提取
 34、内存管理
 
 35、反射机制
+（1）更改特性的值
+ 关键点：typeof、GetProperty、GetCustomAttributes、GetType、GetField、FildInfo
+ 【例】
+ using System;
+ using System.Reflection;
+
+namespace DynamicEditAttribute
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var attributes = typeof(MyCard).GetProperty("IdCard").GetCustomAttributes(false); //获取MyCard类IdCard属性的自定义特性
+            foreach (var attribute in attributes)
+            {
+                if (attribute is MessageAttribute)
+                {
+                    var memberInfo = attribute.GetType().GetField("_message", BindingFlags.NonPublic | BindingFlags.Instance);//查找特性的指定字段
+
+                    if (memberInfo != null)
+                    {
+                        Console.WriteLine(memberInfo.GetValue(attribute)); 
+                        memberInfo.SetValue(attribute, "New Message...."); //为特性设置新值
+                        Console.WriteLine(memberInfo.GetValue(attribute));
+                    }
+                }
+            }
+            Console.ReadLine();
+        }
+    }
+
+
+    public class MyCard
+    {
+        [Message("Old Message")]
+        public IdCard IdCard { get; set; }
+    }
+
+    public class IdCard
+    {
+
+    }
+
+    [AttributeUsage(AttributeTargets.Property)]
+    public class MessageAttribute : Attribute
+    {
+        private string _message;
+        public MessageAttribute(string message)
+        {
+            _message = message;
+        }
+    }
+}
+
 
 36、NetFramework网络通信
 
