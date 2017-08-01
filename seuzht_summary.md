@@ -3,16 +3,15 @@ Here is my thinkings during the development of project in ESTUN.
 
 >1、当新建一个WPF类输出库类型项目，默认是只有.cs文件而没有XAML界面的，如果手动在其中添加WPF控件类（也就是.xaml和.xaml.cs两个文件），须要在项目引用中添加对System.XAML的引用。
 
->2、如果在跨工程调用图片资源显示，需要将图片资源的属性中的“生成操作”修改为“Resources”，而不能为默认的“内容”。否则报异常System.Xaml.XamlParseException。
+>2、如果在跨工程调用图片资源显示，需要将图片资源的属性中的“生成操作”修改为“Resources”，而不能为默认的“内容”。否则报异常      
+System.Xaml.XamlParseException。
 
 >3、Grid.Background的内容设置ImageBrush
-
-<pre><code>
-  <Grid.Background>
-  <ImageBrush Source = "/ProjectName;Component/Resources/Images/Servo.png" 
-  Opacity = "0.3"   Stretch = "None"/>
-  </Grid.Background>
-</pre></code>
+    
+    <Grid.Background>
+    <ImageBrush Source = "/ProjectName;Component/Resources/Images/Servo.png" 
+    Opacity = "0.3"   Stretch = "None"/>
+    </Grid.Background>
 
 >4、如果遇到Xaml.cs中窗口类的构造函数调用InitializeComponent失败，一般原因是XAML文件中对本窗体的类名定义x:Class与.cs文件中类名及所在的命名空间不对应。
 
@@ -21,8 +20,9 @@ Here is my thinkings during the development of project in ESTUN.
 >6、为工程添加资源文件夹时，e.g.应首先通过解决方案管理树为Resources文件夹下Images文件夹添加一个名为Menu文件夹；如果这时在工程目录中已存在Menu文件夹已存在，就换个名字如NewFold之类的；然后为这个新建的NewFold添加资源图片；最后去工程目录下修改这个名字为Menu。
 
 >7、Shell中指定主窗口为其他工程中的XAML窗口（窗口类为MainWindow），需要在Shell.xaml中加上元素<views:MainWindow>。且如果想设置窗口背景，可以为Window.icon属性设置ImageSource，如下所示：
- xmlns:views="clr-namespace:ESviewTest.Business.MainWindow.Views;
-assembly=ESviewTest.Business.MainWindow"
+    
+    xmlns:views="clr-namespace:ESviewTest.Business.MainWindow.Views;
+    assembly=ESviewTest.Business.MainWindow"
     Title="ESViewTest" 
     WindowState="Maximized">
     <views:MainWindow />
@@ -31,13 +31,14 @@ assembly=ESviewTest.Business.MainWindow"
     </Window.Icon>
 
 >8、WPF应用程序框架搭建步骤理解认识小结
-  - 创建主应用程序的主窗体shell.xaml
-  - 在主窗体中跨工程引用窗体ESviewTest.Business.MainWindow，主要考虑跨工程窗体嵌套。
-  - 系统分层设计（）
-  - Business中每个功能模块（独立界面工程）都需要考虑MVVM（Model-View-ModelView）的设计模式。
-Model: This can be really simple, the goal here is for the ViewModel not to have to do any of the business logic.
-ViewModel: This should essentially delegate everything to the Model except for exposing data for the View.
-View: This should just bind to the ViewModel and make stuff look pretty.
+   - 创建主应用程序的主窗体shell.xaml
+   - 在主窗体中跨工程引用窗体ESviewTest.Business.MainWindow，主要考虑跨工程窗体嵌套。
+   - 系统分层设计（）
+   - Business中每个功能模块（独立界面工程）都需要考虑MVVM（Model-View-ModelView）的设计模式。
+
+>>Model: This can be really simple, the goal here is for the ViewModel not to have to do any of the business logic.
+>>ViewModel: This should essentially delegate everything to the Model except for exposing data for the View.
+>>View: This should just bind to the ViewModel and make stuff look pretty.
 
 >9、字符串资源都会被生成public Static 只读属性，所以在XAML中绑定字符资源需要x:Static标记扩展。标记扩展详见《深入浅出WPF》
 
@@ -45,15 +46,17 @@ View: This should just bind to the ViewModel and make stuff look pretty.
 且只读/写是属于读/写范畴，与访问权限（pubic/private/protected）不可混淆。
 
 >11、wpf XAML design-time expression  http://blog.csdn.net/yapingxin/article/details/23942923
-xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-d:DesignHeight="336"
-d:DesignWidth="300"
-d:DataContext="{d:DesignInstance viewModels:Presenter}"
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    d:DesignHeight="336"
+    d:DesignWidth="300"
+    d:DataContext="{d:DesignInstance viewModels:Presenter}"
 
 >12、键盘Enter快捷键
-<UserControl.InputBindings>
+
+    <UserControl.InputBindings>
           <KeyBinding Key="Enter" Command="{Binding ConvertTextCommand}"/>
-       </UserControl.InputBindings>
+    </UserControl.InputBindings>
 
 >13、无法启动远程调试器  
 目标平台修改为x86即可。
@@ -77,20 +80,21 @@ XAML中事件性Attribute充当XAML与C#之间沟通的纽带。
 >它是一个标签（子级标签）：是父级标签内容的一个元素，位于父级标签的内容处。
 它对应于父级标签的一个属性。
 写法格式上如下：
-><ClassName>
-><ClassName.属性名>
-><!--以对象形式为属性赋值-->
-></ClassName.属性名>
-></ClassName>
+
+    <ClassName>
+    <ClassName.属性名>
+    <!--以对象形式为属性赋值-->
+    </ClassName.属性名>
+    </ClassName>
 
 >有很多例子，如Rectangle.Fill作为属性元素形式如下：
 
-><Rectangle>
-><Rectangle.Fill>
-><!--以对象形式为属性赋值-->
-><SolidBrush Color = "Blue">
-></Rectangle.Fill>
-></Rectangle>
+    <Rectangle>
+    <Rectangle.Fill>
+    <!--以对象形式为属性赋值-->
+    <SolidBrush Color = "Blue">
+    </Rectangle.Fill>
+    </Rectangle>
 
 >又例如ESView主窗体Windows定义一个图标Icon：
 
@@ -98,10 +102,12 @@ XAML中事件性Attribute充当XAML与C#之间沟通的纽带。
 一般来说系统模板自带的类型，解析器可以识别并进行正确的类型转换。但是自定义的类型往往需要以属性元素形式设置正确对应类型的value。当然也可以通过绑定到外部对应类型的属性。
 
 >19、标记扩展{}中属性值不再加引号。编译器会将花括号里的内容解析成对应的对象。对象的数据类型就是紧邻左花括号的字符串，例如绑定的话就是binding对象
-Text = "{Binding ElementName = Slide, Path = Value, Mode = OneWay}"。
+    
+    Text = "{Binding ElementName = Slide, Path = Value, Mode = OneWay}"。
 等价于后台代码 :
- Binding binding = new Binding() {Source = slider, Mode = BindingMode.OneWay };
-BindingOperations.SetBinding(this.textBoxName,TextBox.TextProperty, binding);
+    
+    Binding binding = new Binding() {Source = slider, Mode = BindingMode.OneWay };
+    BindingOperations.SetBinding(this.textBoxName,TextBox.TextProperty, binding);
 只有MarkupExtension类的派生类才能使用标记扩展语法来创建对象。
 
 >20、x名称空间
@@ -114,27 +120,32 @@ x:FieldModifier：用来设置引用变量的访问权限
 
 >22、属性（数据源）绑定
 通过类派生INotifyPropertyChanged接口，并在属性Set中激发事件。如下：
-class Student : INotifyPropertyChanged {
-public event PropertyChangedEventHandler()
-public string Name{
- get { return _name; }
- set {
-      _name= value;
-//激发事件
-if(PropertyChanged != null)
-PropertyChanged(this,new PropertyChangedEventArgs("Name"));
-}
-   }
-}
+  
+    class Student : INotifyPropertyChanged 
+    {  
+          public event PropertyChangedEventHandler()
+          public string Name
+          {
+              get { return _name; }
+              set {
+                    _name= value;
+                    //激发事件
+                    if(PropertyChanged != null)
+                        PropertyChanged(this,new PropertyChangedEventArgs("Name"));
+                  }
+          }
+    }
 目前第三方插件为数据源提供了更为方便的事件通知机制，有RaisePropertyChangedEvent(string)；也有Reshaper|Options|Code Annotations提供了(详参https://blog.jetbrains.com/dotnet/2012/07/24/inotifypropertychanged-support-in-resharper-7/)
-OnPropertyChanged(string)+Annotations(定义了特性[NotifyPropertyChangedInvocator])	
+    
+    OnPropertyChanged(string)+Annotations(定义了特性[NotifyPropertyChangedInvocator])	
 Resharper使用属性改变通知机制：
 将属性所在的类派生自INotifyPropertyChanged，这时ReSharper会自动提示要求实现OnPropertyChanged，按照提示自动添加以下代码：
- [NotifyPropertyChangedInvocator]
- protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
- {
+    
+    [NotifyPropertyChangedInvocator]
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
- }
+    }
 然后在属性的Set中添加OnPropertyChangeds();就OK了。
 
 >23、数据库Sqlite技术在C# WPF上的应用
@@ -150,19 +161,21 @@ Resharper使用属性改变通知机制：
 >27、参数表DataGrid界面技术
 
 >28、定时器技术
-using System.Timers.Timer;
-var timer  =  new Timer(){Enable = True;}
-timer.Elapsed += new ElapsedEventHandler(EventHandler_timer);
-private void EventHandler_timer(object sender, ElapsedEventArgs args)
-{      }
+
+    using System.Timers.Timer;
+    var timer  =  new Timer(){Enable = True;}
+    timer.Elapsed += new ElapsedEventHandler(EventHandler_timer);
+    private void EventHandler_timer(object sender, ElapsedEventArgs args)
+    {      }
 
 >29、枚举随机数
-StateMachine is an enum type value as supposed:
-StateMachine[] enuArr = Enum.GetValues(typeof(StateMachine)) as StateMachine[];
-Random ran = new Random();
-StateMachine sm = StateMachine.Error;
-if(enuArr != null){
-sm  = enuArr[ran.Next(0,enuArr.Length)]; }
+
+    StateMachine is an enum type value as supposed:
+    StateMachine[] enuArr = Enum.GetValues(typeof(StateMachine)) as StateMachine[];
+    Random ran = new Random();
+    StateMachine sm = StateMachine.Error;
+    if(enuArr != null){
+    sm  = enuArr[ran.Next(0,enuArr.Length)]; }
 
 >30、泛型
 
@@ -186,57 +199,59 @@ sm  = enuArr[ran.Next(0,enuArr.Length)]; }
 >35、反射机制
 （1）更改特性的值
  关键点：typeof、GetProperty、GetCustomAttributes、GetType、GetField、FildInfo
- 【例】
- using System;
- using System.Reflection;
+ 【示例代码段】
+ 
+     using System;
+     using System.Reflection;
 
-namespace DynamicEditAttribute
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var attributes = typeof(MyCard).GetProperty("IdCard").GetCustomAttributes(false); //获取MyCard类IdCard属性的自定义特性
-            foreach (var attribute in attributes)
+     namespace DynamicEditAttribute
+     {
+         class Program
+         {
+            static void Main(string[] args)
             {
-                if (attribute is MessageAttribute)
+                var attributes = typeof(MyCard).GetProperty("IdCard").GetCustomAttributes(false); //获取MyCard类IdCard属性的自定义特性
+                foreach (var attribute in attributes)
                 {
-                    var memberInfo = attribute.GetType().GetField("_message", BindingFlags.NonPublic | BindingFlags.Instance);//查找特性的指定字段
-
-                    if (memberInfo != null)
+                    if (attribute is MessageAttribute)
                     {
-                        Console.WriteLine(memberInfo.GetValue(attribute)); 
-                        memberInfo.SetValue(attribute, "New Message...."); //为特性设置新值
-                        Console.WriteLine(memberInfo.GetValue(attribute));
+                        //查找特性的指定字段
+                        var memberInfo = attribute.GetType().GetField("_message", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                        if (memberInfo != null)
+                        {
+                            Console.WriteLine(memberInfo.GetValue(attribute)); 
+                            memberInfo.SetValue(attribute, "New Message...."); //为特性设置新值
+                            Console.WriteLine(memberInfo.GetValue(attribute));
+                        }
                     }
                 }
-            }
-            Console.ReadLine();
-        }
-    }
+                Console.ReadLine();
+             }
+          }
 
 
-    public class MyCard
-    {
-        [Message("Old Message")]
-        public IdCard IdCard { get; set; }
-    }
+           public class MyCard
+           {
+              [Message("Old Message")]
+              public IdCard IdCard { get; set; }
+           }
 
-    public class IdCard
-    {
+           public class IdCard
+           {
 
-    }
+           }
 
-    [AttributeUsage(AttributeTargets.Property)]
-    public class MessageAttribute : Attribute
-    {
-        private string _message;
-        public MessageAttribute(string message)
-        {
-            _message = message;
-        }
-    }
-}
+           [AttributeUsage(AttributeTargets.Property)]
+           public class MessageAttribute : Attribute
+           {
+              private string _message;
+              public MessageAttribute(string message)
+              {
+                  _message = message;
+              }
+           }
+      }
 
 
 >36、NetFramework网络通信
