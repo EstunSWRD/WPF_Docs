@@ -105,12 +105,10 @@ XAML中事件性Attribute充当XAML与C#之间沟通的纽带。
 >19、标记扩展{}中属性值不再加引号。编译器会将花括号里的内容解析成对应的对象。对象的数据类型就是紧邻左花括号的字符串，例如绑定的话就是binding对象
     
     Text = "{Binding ElementName = Slide, Path = Value, Mode = OneWay}"。
-
->等价于后台代码 :
-    
+>等价于后台代码 :    
+   
     Binding binding = new Binding() {Source = slider, Mode = BindingMode.OneWay };
     BindingOperations.SetBinding(this.textBoxName,TextBox.TextProperty, binding);
-
 >只有MarkupExtension类的派生类才能使用标记扩展语法来创建对象。
 
 >20、x名称空间
