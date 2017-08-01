@@ -1,4 +1,4 @@
-learning notes of WPF
+Learning Notes of WPF
 
 >WPF is a popular developing language in PC software field.
 >Here is our group members' thinkings during the long learning journey.
