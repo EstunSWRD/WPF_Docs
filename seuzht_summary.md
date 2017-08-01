@@ -45,7 +45,7 @@ System.Xaml.XamlParseException。
 >10、只读属性通过{get;}设置，而只读字段使用readonly修饰符限定，其中readonly字段只能在声明时或者同一构造函数中赋值，其他任何地方不允许赋值。
 且只读/写是属于读/写范畴，与访问权限（pubic/private/protected）不可混淆。
 
->11、wpf XAML design-time expression  http://blog.csdn.net/yapingxin/article/details/23942923
+>11、[wpf XAML design-time expression](http://blog.csdn.net/yapingxin/article/details/23942923)
     
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     d:DesignHeight="336"
@@ -104,11 +104,13 @@ XAML中事件性Attribute充当XAML与C#之间沟通的纽带。
 >19、标记扩展{}中属性值不再加引号。编译器会将花括号里的内容解析成对应的对象。对象的数据类型就是紧邻左花括号的字符串，例如绑定的话就是binding对象
     
     Text = "{Binding ElementName = Slide, Path = Value, Mode = OneWay}"。
-等价于后台代码 :
+
+>等价于后台代码 :
     
     Binding binding = new Binding() {Source = slider, Mode = BindingMode.OneWay };
-    BindingOperations.SetBinding(this.textBoxName,TextBox.TextProperty, binding);
-只有MarkupExtension类的派生类才能使用标记扩展语法来创建对象。
+    BindingOperations.SetBinding(this.textBoxName,TextBox.TextProperty, binding);
+
+>只有MarkupExtension类的派生类才能使用标记扩展语法来创建对象。
 
 >20、x名称空间
 x:Class：与对应后台代码中类的名称一致，且后台要用partial关键字
@@ -135,18 +137,19 @@ x:FieldModifier：用来设置引用变量的访问权限
                   }
           }
     }
-目前第三方插件为数据源提供了更为方便的事件通知机制，有RaisePropertyChangedEvent(string)；也有Reshaper|Options|Code Annotations提供了(详参https://blog.jetbrains.com/dotnet/2012/07/24/inotifypropertychanged-support-in-resharper-7/)
+>目前第三方插件为数据源提供了更为方便的事件通知机制，有RaisePropertyChangedEvent(string)；也有[Reshaper|Options|Code Annotations](https://blog.jetbrains.com/dotnet/2012/07/24/inotifypropertychanged-support-in-resharper-7/)
     
     OnPropertyChanged(string)+Annotations(定义了特性[NotifyPropertyChangedInvocator])	
-Resharper使用属性改变通知机制：
-将属性所在的类派生自INotifyPropertyChanged，这时ReSharper会自动提示要求实现OnPropertyChanged，按照提示自动添加以下代码：
+>Resharper使用属性改变通知机制：
+>将属性所在的类派生自INotifyPropertyChanged，这时ReSharper会自动提示要求实现OnPropertyChanged，按照提示自动添加以下代码：
     
     [NotifyPropertyChangedInvocator]
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-然后在属性的Set中添加OnPropertyChangeds();就OK了。
+
+>然后在属性的Set中添加OnPropertyChangeds();就OK了。
 
 >23、数据库Sqlite技术在C# WPF上的应用
 
