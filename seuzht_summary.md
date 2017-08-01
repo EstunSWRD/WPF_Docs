@@ -28,10 +28,10 @@ assembly=ESviewTest.Business.MainWindow"
     </Window.Icon>
 
 >8、WPF应用程序框架搭建步骤理解认识小结
-  - 1. 创建主应用程序的主窗体shell.xaml
-  - 2. 在主窗体中跨工程引用窗体ESviewTest.Business.MainWindow，主要考虑跨工程窗体嵌套。
-  - 3. 系统分层设计（）
-  - 4. Business中每个功能模块（独立界面工程）都需要考虑MVVM（Model-View-ModelView）的设计模式。
+  - 创建主应用程序的主窗体shell.xaml
+  - 在主窗体中跨工程引用窗体ESviewTest.Business.MainWindow，主要考虑跨工程窗体嵌套。
+  - 系统分层设计（）
+  - Business中每个功能模块（独立界面工程）都需要考虑MVVM（Model-View-ModelView）的设计模式。
 Model: This can be really simple, the goal here is for the ViewModel not to have to do any of the business logic.
 ViewModel: This should essentially delegate everything to the Model except for exposing data for the View.
 View: This should just bind to the ViewModel and make stuff look pretty.
@@ -70,24 +70,28 @@ WPF模板为xaml文件提供默认引用的两个名称空间，格外重要。�
 XAML中事件性Attribute充当XAML与C#之间沟通的纽带。
 
 >18、属性元素
-它是一个标签（子级标签）：是父级标签内容的一个元素，位于父级标签的内容处。
+
+>它是一个标签（子级标签）：是父级标签内容的一个元素，位于父级标签的内容处。
 它对应于父级标签的一个属性。
 写法格式上如下：
-<ClassName>
-<ClassName.属性名>
-<!--以对象形式为属性赋值-->
-</ClassName.属性名>
-</ClassName>
-有很多例子，如Rectangle.Fill作为属性元素形式如下：
-<Rectangle>
-<Rectangle.Fill>
-<!--以对象形式为属性赋值-->
-<SolidBrush Color = "Blue">
-</Rectangle.Fill>
-</Rectangle>
-又例如ESView主窗体Windows定义一个图标Icon：
+><ClassName>
+><ClassName.属性名>
+><!--以对象形式为属性赋值-->
+></ClassName.属性名>
+></ClassName>
 
-可以通过为WIndow添加一个属性元素WIndow.Icon实现，也可以直接在Window标签指定属性Icon，这里注意由于XAML语法限制，直接属性Icon是一个字符串，经过XAML解析后字符串对应的资源被解析成ImageSource类型的实例对象。
+>有很多例子，如Rectangle.Fill作为属性元素形式如下：
+
+><Rectangle>
+><Rectangle.Fill>
+><!--以对象形式为属性赋值-->
+><SolidBrush Color = "Blue">
+></Rectangle.Fill>
+></Rectangle>
+
+>又例如ESView主窗体Windows定义一个图标Icon：
+
+>可以通过为WIndow添加一个属性元素WIndow.Icon实现，也可以直接在Window标签指定属性Icon，这里注意由于XAML语法限制，直接属性Icon是一个字符串，经过XAML解析后字符串对应的资源被解析成ImageSource类型的实例对象。
 一般来说系统模板自带的类型，解析器可以识别并进行正确的类型转换。但是自定义的类型往往需要以属性元素形式设置正确对应类型的value。当然也可以通过绑定到外部对应类型的属性。
 
 >19、标记扩展{}中属性值不再加引号。编译器会将花括号里的内容解析成对应的对象。对象的数据类型就是紧邻左花括号的字符串，例如绑定的话就是binding对象
