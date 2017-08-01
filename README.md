@@ -4,7 +4,7 @@ Learning Notes of WPF
 >Here is our group members' thinkings during the long learning journey.
 
 ![License](https://img.shields.io/badge/license-MIT-red.svg)
-[![Build status](https://img.shields.io/appveyor/ci/objorke/oxyplot/develop.svg)]
+![Build status](https://img.shields.io/appveyor/ci/objorke/oxyplot/develop.svg)
 
 There are 11 major technical modules as following:
 
