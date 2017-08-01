@@ -148,7 +148,8 @@ Application类将对象发送过来的消息从应用程序消息队列中提取
 
 35、反射机制
 （1）更改特性的值
- 关键点：typeof、GetProperty、GetCustomAttributes、GetType、GetField、FildInfo
+  关键点：typeof、GetProperty、GetCustomAttributes、GetType、GetField、FildInfo
+  某些情况下,我们需要动态更改属性的特性值,则可以使用反射获取属性的特性,然后遍历该特性,然后对目标值进行设置.具体使用如下例所示:
  【例】
  using System;
  using System.Reflection;
