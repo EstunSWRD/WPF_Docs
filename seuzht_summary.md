@@ -134,6 +134,8 @@ Resharper使用属性改变通知机制：
 
 >24、NModbus技术
 
+>NModbus is a 
+
 >25、绘图技术之OxyPlot.dll及进度条Toolkit
 
 >26、异常处理以及日志NLog
