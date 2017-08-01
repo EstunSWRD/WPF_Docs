@@ -6,10 +6,13 @@ Here is my thinkings during the development of project in ESTUN.
 >2、如果在跨工程调用图片资源显示，需要将图片资源的属性中的“生成操作”修改为“Resources”，而不能为默认的“内容”。否则报异常System.Xaml.XamlParseException。
 
 >3、Grid.Background的内容设置ImageBrush
-<Grid.Background>
+
+<pre><code>
+  <Grid.Background>
   <ImageBrush Source = "/ProjectName;Component/Resources/Images/Servo.png" 
-Opacity = "0.3"   Stretch = "None"/>
-</Grid.Background>
+  Opacity = "0.3"   Stretch = "None"/>
+  </Grid.Background>
+</pre></code>
 
 >4、如果遇到Xaml.cs中窗口类的构造函数调用InitializeComponent失败，一般原因是XAML文件中对本窗体的类名定义x:Class与.cs文件中类名及所在的命名空间不对应。
 
