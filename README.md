@@ -1,29 +1,42 @@
-># WPF_Docs
->learning notes of WPF
+learning notes of WPF
 
 >WPF is a popular developing language in PC software field.
->Here is our group members' thinkings overview during the long learning journey.
+>Here is our group members' thinkings during the long learning journey.
 
-># 1.Drawing curves 
->## oxyplot.dll
+![License](https://img.shields.io/badge/license-MIT-red.svg)
+[![Build status](https://img.shields.io/appveyor/ci/objorke/oxyplot/develop.svg)]
 
-># 2.SQlite3 technicals
+There are 11 major technical modules as following:
 
-># 3.NModbus Communication
+- Drawing Curves 
 
-># 4.event and delegate 
+- SQlite3 Technicals
 
-># 5.asynic and thread
+- NModbus Communication
 
-># 6.WPF DataGrid template
+- Event and Delegate 
 
-># 7.Binding
+- Asynic and Thread
 
-># 8.Reflection
+- WPF DataGrid Template
 
-># 9.Exception Handle & NLog
+- Binding
 
-># 10.Network
+- Reflection
 
-># 11.Unit test by VS
+- Exception Handle & NLog
+
+- Network
+
+- Unit Test
+ 
+####Contributors
+
+- Dennis
+
+- Kevin
+
+####CopyRight
+[ESTUN](www.estun.com) | 
+[MyPage](m.ta13842480.icoc.me)
 
