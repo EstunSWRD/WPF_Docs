@@ -148,17 +148,20 @@ var timer  =  new Timer(){Enable = True;}
 timer.Elapsed += new ElapsedEventHandler(EventHandler_timer);
 private void EventHandler_timer(object sender, ElapsedEventArgs args)
 {      }
-29、枚举随机数
+
+>29、枚举随机数
 StateMachine is an enum type value as supposed:
 StateMachine[] enuArr = Enum.GetValues(typeof(StateMachine)) as StateMachine[];
 Random ran = new Random();
 StateMachine sm = StateMachine.Error;
 if(enuArr != null){
 sm  = enuArr[ran.Next(0,enuArr.Length)]; }
-30、泛型
 
-31、事件处理机制和委托
-Application类将对象发送过来的消息从应用程序消息队列中提取出来后，分发到相应的窗体，并转换成事件。NET框架定义了一个特殊的类型(Delegate委托)，该类型提供函数指针的功能。这样，委托就等效于一个类型安全的函数指针或一个回调函数。C#中通过Delegate委托机制将事件与响应函数的函数地址关联起来，并形成一种函数指针列表，当消息到来的时候，即可通过这些函数指针列表逐一调用这些响应函数。我们通过以下方法自定义一个事件触发，来验证我们以上的猜测。我们通过手动添加代码来实现自定义的代理事件（同VC++中的自定义消息） 
+>30、泛型
+
+>31、事件处理机制和委托
+
+>Application类将对象发送过来的消息从应用程序消息队列中提取出来后，分发到相应的窗体，并转换成事件。NET框架定义了一个特殊的类型(Delegate委托)，该类型提供函数指针的功能。这样，委托就等效于一个类型安全的函数指针或一个回调函数。C#中通过Delegate委托机制将事件与响应函数的函数地址关联起来，并形成一种函数指针列表，当消息到来的时候，即可通过这些函数指针列表逐一调用这些响应函数。我们通过以下方法自定义一个事件触发，来验证我们以上的猜测。我们通过手动添加代码来实现自定义的代理事件（同VC++中的自定义消息） 
       ○ 声明事件委托。此处int para仅是方便实验，代表所需要的参数列表，但要注意参数列表需要和第3步的参数列表相统一。 public delegate void MyEventHandler(int para);
       ○  声明事件，event 关键字用于在发行者类中声明事件，委托MyEventHandler作为事件的类型。 public event MyEventHandler MyEvent;
       ○ 添加事件的处理程序（响应事件的方法）。public void OnMyEvent(int para) { MessageBox.Show(""事件触发，参数为:""+para);}
@@ -166,13 +169,14 @@ Application类将对象发送过来的消息从应用程序消息队列中提取
       ○  触发事件（调用事件的触发方法）。MyEvent(3); 
       ○  通过事件委托的回调，执行我们需要的事件处理程序。弹出消息框“事件触发，参数为:3”。
  以上实验可以得出结论，C#中的消息通过Application转换成事件以后，通过以上6个步骤完成了事件与处理程序之间的对应关系，在用户触发事件以后，相应的时间处理程序得到准确执行。也可通过以上方法，增加用户自定义事件。
-32、异步编程、任务、线程和同步
 
-33、文件操作（XML文件序列化/反序列化）
+>32、异步编程、任务、线程和同步
 
-34、内存管理
+>33、文件操作（XML文件序列化/反序列化）
 
-35、反射机制
+>34、内存管理
+
+>35、反射机制
 （1）更改特性的值
  关键点：typeof、GetProperty、GetCustomAttributes、GetType、GetField、FildInfo
  【例】
@@ -228,6 +232,6 @@ namespace DynamicEditAttribute
 }
 
 
-36、NetFramework网络通信
+>36、NetFramework网络通信
 
-37、Visual Studio单元测试.
+>37、Visual Studio单元测试.
