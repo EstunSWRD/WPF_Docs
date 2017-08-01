@@ -9,8 +9,8 @@ Advantages：灵活自定义、绘制效率高
 >Steps as following:
 >
 >1、定义PlotModel
->
-var plotModel = new PlotModel
+
+>var plotModel = new PlotModel
 {
 Title = "",
 LegendPosition = LegendPosition.TopLeft,
@@ -22,8 +22,8 @@ DefaultFontSize = ConstantValues.DefaultFontSize
 };
 
 >2、定义轴LinearAxis
->
-var xAxis = new LinearAxis
+
+>var xAxis = new LinearAxis
 {
 Position = AxisPosition.Bottom,
 Key = "x",
