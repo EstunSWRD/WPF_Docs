@@ -1,5 +1,6 @@
 Here is my thinkings during the development of project in ESTUN.
-###WPF Skills
+
+### WPF Skills
 
 1、当新建一个WPF类输出库类型项目，默认是只有.cs文件而没有XAML界面的，如果手动在其中添加WPF控件类（也就是.xaml和.xaml.cs两个文件），须要在项目引用中添加对System.XAML的引用。
 
